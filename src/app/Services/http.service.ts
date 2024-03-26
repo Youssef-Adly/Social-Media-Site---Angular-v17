@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class HttpService {
   constructor(private http: HttpClient) {}
   private DBURL = 'https://jsonplaceholder.typicode.com/posts';
+  private DBPOSTURL = 'https://jsonplaceholder.typicode.com/comments?postId=';
   getAllPosts() {
     return this.http.get(this.DBURL);
   }
@@ -17,8 +18,6 @@ export class HttpService {
     return this.http.get(this.DBURL + '/' + id);
   }
   getAllPostComments(id: any) {
-    return this.http.get(
-      'https://jsonplaceholder.typicode.com/comments?postId=' + id
-    );
+    return this.http.get(this.DBPOSTURL + id);
   }
 }
