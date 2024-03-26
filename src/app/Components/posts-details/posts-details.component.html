@@ -1,0 +1,50 @@
+<main
+  class="container-fluid py-3 p-md-5"
+  style="min-height: 100vh; background-color: #eee"
+>
+  <div class="row justify-content-center">
+    <button
+      type="button"
+      routerLink="/posts"
+      class="btn btn-danger col-7 col-md-5 col-xl-3"
+    >
+      Back To Home Page
+    </button>
+  </div>
+  <div class="container container-md-fluid p-md-4">
+    <h1 class="title lead mt-md-0 mt-4">
+      Posted By User #{{ post?.userId }} :
+    </h1>
+    <a class="col-12 col-md-9 d-block m-auto" style="text-decoration: none">
+      <div class="card my-4">
+        <div class="card-header">
+          <span style="color: #6c757d">Post Title:</span><br />
+          <span class="ms-5">{{ post?.title | uppercase }}</span>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{ post?.body | lowercase }}.</p>
+            <footer class="blockquote-footer">
+              User #<cite title="Source Title">{{ post?.userId }}</cite>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </a>
+    <br />
+    <hr class="hr w-50 m-auto" />
+    <br />
+    <h1 class="title lead">Comments Section :</h1>
+    <br />
+    @for (comment of comments; track comment.id) {
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">
+        <span style="color: #6c757d">#{{ comment.id }}</span> {{ comment.name }}
+      </h4>
+      <p>{{ comment.body }}.</p>
+      <hr />
+      <p class="mb-0" style="color: #6c757d">{{ comment.email }}.</p>
+    </div>
+    }
+  </div>
+</main>
