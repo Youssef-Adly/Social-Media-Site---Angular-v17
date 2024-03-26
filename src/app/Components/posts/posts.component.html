@@ -11,6 +11,7 @@
       Home
     </button>
   </div>
+  @if(posts){
   <div class="container container-md-fluid p-md-4">
     <h1 class="title lead mt-md-0 mt-4">Json Placeholder Posts :</h1>
     @for (post of posts; track post.id) {
@@ -38,4 +39,10 @@
     <hr class="hr w-50 m-auto" />
     <hr class="hr w-50 m-auto" />
   </div>
+  }@else {
+  <div class="d-flex align-items-center">
+    <strong role="status">Loading...</strong>
+    <div class="spinner-border ms-auto"></div>
+  </div>
+  }
 </main>
