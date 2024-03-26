@@ -8,6 +8,7 @@ export class HttpService {
   constructor(private http: HttpClient) {}
   private DBURL = 'https://jsonplaceholder.typicode.com/posts';
   private DBPOSTURL = 'https://jsonplaceholder.typicode.com/comments?postId=';
+
   getAllPosts() {
     return this.http.get(this.DBURL);
   }
